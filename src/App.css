@@ -13,6 +13,7 @@
   text-decoration: none;
 }
 
-.App a:hover {
+.App a:hover,
+.App a.active {
   color: orange;
 }
