@@ -29,7 +29,7 @@ class App extends Component {
             <Route path='/users' exact component={Users} />
             <Route path='/courses' exact component={Courses} />
             <Route path='/home' exact pathname='/' />
-            <Route path='/:id/:title' component={Course} />
+            <Route path='/:id' component={Course} />
           </Switch>
         </div>
       </BrowserRouter>

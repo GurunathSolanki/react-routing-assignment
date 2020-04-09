@@ -14,7 +14,7 @@ class Courses extends Component {
   courseClickHandler(id, title) {
     console.log('[Courses] Course clicked :' + id + ':' + title);
     console.log(this.props);
-    this.props.history.push('/' + id + '/' + title);
+    this.props.history.push('/' + id + '?title=' + title);
   }
 
   render() {
