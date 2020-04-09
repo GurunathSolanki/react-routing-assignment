@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import { Route } from 'react-router-dom';
+import Course from '../Course/Course';
 import './Courses.css';
 
 class Courses extends Component {
@@ -14,26 +15,32 @@ class Courses extends Component {
   courseClickHandler(id, title) {
     console.log('[Courses] Course clicked :' + id + ':' + title);
     console.log(this.props);
-    this.props.history.push('/' + id + '?title=' + title);
+    this.props.history.push('/courses/' + id + '?title=' + title);
   }
 
   render() {
     return (
       <div>
-        <h1>Amazing Udemy Courses</h1>
-        <section className='Courses'>
-          {this.state.courses.map((course) => {
-            return (
-              <article
-                onClick={() => this.courseClickHandler(course.id, course.title)}
-                className='Course'
-                key={course.id}
-              >
-                {course.title}
-              </article>
-            );
-          })}
-        </section>
+        <div>
+          <h1>Amazing Udemy Courses</h1>
+          <section className='Courses'>
+            {this.state.courses.map((course) => {
+              return (
+                <article
+                  onClick={() =>
+                    this.courseClickHandler(course.id, course.title)
+                  }
+                  className='Course'
+                  key={course.id}>
+                  {course.title}
+                </article>
+              );
+            })}
+          </section>
+        </div>
+        <div>
+          <Route path='/courses/:id' component={Course} />
+        </div>
       </div>
     );
   }

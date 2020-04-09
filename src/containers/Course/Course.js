@@ -6,11 +6,17 @@ class Course extends Component {
     courseId: null,
   };
   componentDidMount() {
-    console.log('[Course] mounted !!');
-    console.log(this.props);
-    const query = new URLSearchParams(this.props.location.search);
-    // console.log(query.get('title'));
+    this.loadData();
+  }
 
+  componentDidUpdate() {
+    if (this.props.match.params.id != this.state.courseId) {
+      this.loadData();
+    }
+  }
+
+  loadData() {
+    const query = new URLSearchParams(this.props.location.search);
     this.setState({
       courseId: this.props.match.params.id,
       title: query.get('title'),
