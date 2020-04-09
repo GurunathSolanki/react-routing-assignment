@@ -30,6 +30,7 @@ class App extends Component {
             <Route path='/courses' component={Courses} />
             <Route path='/home' exact pathname='/' />
             {/* <Route path='/:id' component={Course} /> */}
+            <Route path='/' render={() => <h1>404 Not Found</h1>} />
           </Switch>
         </div>
       </BrowserRouter>
