@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  NavLink,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import Courses from './containers/Courses/Courses';
 import Course from './containers/Course/Course';
 import Users from './containers/Users/Users';
@@ -30,6 +36,7 @@ class App extends Component {
             <Route path='/courses' component={Courses} />
             <Route path='/home' exact pathname='/' />
             {/* <Route path='/:id' component={Course} /> */}
+            <Redirect from='/all-courses' to='/courses' />
             <Route path='/' render={() => <h1>404 Not Found</h1>} />
           </Switch>
         </div>
