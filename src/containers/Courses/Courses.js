@@ -11,10 +11,10 @@ class Courses extends Component {
     ],
   };
 
-  courseClickHandler(id) {
-    console.log('[Courses] Course clicked :' + id);
+  courseClickHandler(id, title) {
+    console.log('[Courses] Course clicked :' + id + ':' + title);
     console.log(this.props);
-    this.props.history.push('/' + id);
+    this.props.history.push('/' + id + '/' + title);
   }
 
   render() {
@@ -25,7 +25,7 @@ class Courses extends Component {
           {this.state.courses.map((course) => {
             return (
               <article
-                onClick={() => this.courseClickHandler(course.id)}
+                onClick={() => this.courseClickHandler(course.id, course.title)}
                 className='Course'
                 key={course.id}
               >
